@@ -1,5 +1,15 @@
 <?php 
-        echo $this->Form->input($modelName.'.'.$visibleFieldName,array('options' => array('1'=>'Published', '0'=>'Hidden'), 'label' => false, 'selected' => $defaultValue)); 
+
+	$options = array(1=> 'Published', 0=>'Hidden');
+	
+    echo $this->Form->input($modelName.'.'.$visibleFieldName,
+		array(
+			'options' => $options, 
+			'label' => false, 
+			'selected' => intval($defaultValue), 
+			'autocomplete' => 'off'
+		)
+	); 
 
     $modelUC = ucwords($modelName);
     $fieldUC = ucwords($visibleFieldName);
