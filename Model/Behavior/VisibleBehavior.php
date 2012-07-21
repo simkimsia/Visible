@@ -41,7 +41,7 @@ class VisibleBehavior extends ModelBehavior {
  * @return null
  * @author Sim Kim Sia
  */
-	function setup($model, $settings = array()) {
+	public function setup(Model $model, $settings = array()) {
 		$this->__fields[$model->alias] = array();
 		foreach ($settings as $field => $options) {
 			// Check if they even PASSED IN parameters
@@ -75,7 +75,7 @@ class VisibleBehavior extends ModelBehavior {
  * @author Sim Kim Sia
  **/
 
-        function toggle($model, $id = false, $fieldName = 'visible') {
+	public function toggle(Model $model, $id = false, $fieldName = 'visible') {
 		if (!$id) {
 			if (!$model->id) {
 				return false;
@@ -112,7 +112,7 @@ class VisibleBehavior extends ModelBehavior {
  * @author Sim Kim Sia
  **/
 
-        function toggleByConditions($model, $conditions = array(), $fieldName = 'visible') {
+	public function toggleByConditions(Model $model, $conditions = array(), $fieldName = 'visible') {
 		if (empty($conditions)) {
 			$conditions = array($model->alias . '.id' => $this->id);
 		}
@@ -146,7 +146,7 @@ class VisibleBehavior extends ModelBehavior {
  * @return array
  * @author Vinicius Mendes
  */
-	function _arrayMerge($arr, $ins) {
+	private function _arrayMerge($arr, $ins) {
 		if (is_array($arr)) {
 			if (is_array($ins)) {
 				foreach ($ins as $k => $v) {
